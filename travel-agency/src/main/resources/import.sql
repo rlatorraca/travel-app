@@ -1,0 +1,9 @@
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Mitchell');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'John');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Sarah');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Ruth');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Michael');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Jimmy');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Carl');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Trista');
+INSERT INTO Client(id,name) VALUES (nextval('Hibernate_sequence'), 'Misha');
