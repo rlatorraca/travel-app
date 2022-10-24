@@ -1,10 +1,13 @@
 package ca.com.rlsp.client;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.enterprise.context.RequestScoped;
+import javax.transaction.Transactional;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.lang.annotation.Repeatable;
 import java.util.List;
+
 
 @Path("/client")
 public class ClientResource {
@@ -13,5 +16,45 @@ public class ClientResource {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Client> getAllClients(){
         return Client.listAll();
+    }
+
+    @GET()
+    @Path("getClientById/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Client getClientByIdPathParam(@PathParam("id") long id){
+        return Client.findById(id);
+    }
+
+    @GET()
+    @Path("getClientById")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Client getClientByIdQueryParam(@QueryParam("id") long id){
+        return Client.findById(id);
+    }
+
+    @DELETE()
+    @Path("removeClientById/{id}")
+    @Transactional
+    public void removeClientByIdPathParam(@PathParam("id") long id){
+        Client.deleteById(id);
+    }
+
+    @DELETE()
+    @Path("removeClientById")
+    @Transactional
+    public void removeClientByIdQueryParam(@QueryParam("id") long id){
+        Client.deleteById(id);
+    }
+
+    @POST
+    @Path("addClient")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response addClient(Client client){
+        client.id=null; //Garante que nao sera um update
+        client.persist();
+
+        return Response.status(Response.Status.CREATED).entity(client).build();
     }
 }
