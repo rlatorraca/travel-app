@@ -47,11 +47,11 @@ public class ClientResource {
     }
 
     @POST
-    @Path("addClient")
+    @Path("newClient")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response addClient(Client client){
+    public Response newClient(Client client){
         client.id=null; //Garante que nao sera um update
         client.persist();
 

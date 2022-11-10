@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Book extends PanacheEntity {
+public class Booking extends PanacheEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     Client client;
