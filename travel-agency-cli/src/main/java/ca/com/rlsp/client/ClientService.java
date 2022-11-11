@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.time.temporal.ChronoUnit;
 
-@RegisterRestClient(baseUri = "http://localhost:8080/client")
+@RegisterRestClient(baseUri = "http://localhost:8181/client")
 public interface ClientService {
 
     @POST
