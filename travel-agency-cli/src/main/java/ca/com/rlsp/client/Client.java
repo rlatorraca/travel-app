@@ -7,6 +7,11 @@ public class Client {
     private Long id;
     private String name;
 
+    public Client(){
+
+    }
+
+
     private Client(Long id, String name) {
         this.id = id;
         this.name = name;

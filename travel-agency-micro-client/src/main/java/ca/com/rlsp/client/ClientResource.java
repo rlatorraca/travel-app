@@ -17,16 +17,18 @@ public class ClientResource {
     }
 
     @GET()
-    @Path("getClientById/{id}")
+    @Path("/getClientById/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Client getClientByIdPathParam(@PathParam("id") long id){
+    public Client getClientByIdPathParam(@PathParam("id") long id) throws InterruptedException {
+        //Thread.sleep(5000);
         return Client.findById(id);
     }
 
     @GET()
-    @Path("getClientById")
+    @Path("/getClientById")
     @Produces(MediaType.APPLICATION_JSON)
-    public Client getClientByIdQueryParam(@QueryParam("id") long id){
+    public Client getClientByIdQueryParam(@QueryParam("id") long id) throws InterruptedException {
+        //Thread.sleep(5000);
         return Client.findById(id);
     }
 
@@ -45,7 +47,7 @@ public class ClientResource {
     }
 
     @POST
-    @Path("newClient")
+    @Path("/newClient")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional

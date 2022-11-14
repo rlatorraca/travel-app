@@ -25,9 +25,16 @@ public class ClientResource {
     }
 
     @GET
-    @Path("findById")
+    @Path("getClientById")
     @Produces(MediaType.APPLICATION_JSON)
-    public Client findById(@QueryParam("id") long id){
-        return clientService.findById(id);
+    public Client getClientByIdQueryParam(@QueryParam("id") long id){
+        return clientService.getClientByIdQueryParam(id);
+    }
+
+    @GET
+    @Path("getClientById/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Client getClientByIdPathParam(@PathParam("id") long id){
+        return clientService.getClientByIdPathParam(id);
     }
 }
